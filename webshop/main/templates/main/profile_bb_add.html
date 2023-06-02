@@ -1,0 +1,14 @@
+{% extends 'layout/basic.html' %}
+
+{% load django_bootstrap5 %}
+{% block title %}Web Shop - User Profile{% endblock %}
+
+{% block content %}
+<h2>Add Goods</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form layout='horizontal' %}
+    {% bootstrap_formset formset layout='horizontal' %}
+    {% bootstrap_button 'Add' %}
+</form>
+{% endblock %}

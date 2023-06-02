@@ -1,0 +1,27 @@
+{% extends 'layout/basic.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block title %}Delete Goods - User Profile{% endblock %}
+
+{% block content %}
+<h2>Goods edit</h2>
+<div class="row mt-3">
+    {% if bb.image %}
+    <div class="col-md-auto">
+        <img src="{{ bb.image.url }}" class="main-image">
+    </div>
+    {% endif %}
+    <div class="col">
+        <h2>{{ bb.title }}</h2>
+        <p>{{ bb.content }}</p>
+        <p class="fw-bold">{{ bb.price }} ₴.</p>
+        <p>{{ bb.contacts }}</p>
+        <p class="text-end fst-italic">Published {{ bb.created_at }}</p>
+    </div>
+</div>
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_button 'Delete' button_class='btn-danger' %}
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout/basic.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block title %}Goods edit - User Profile{% endblock %}
+
+{% block content %}
+<h2>Goods Edit</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form layout='horizontal' %}
+    {% bootstrap_formset formset layout='horizontal' %}
+    {% bootstrap_button 'Save' %}
+</form>
+{% endblock %}
